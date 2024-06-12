@@ -1,0 +1,7 @@
+<p>landpads works!</p>
+
+<div>
+  @for (landpad of landpads$ | async; track landpad.id) {
+    <div>{{ landpad.name }}</div>
+  }
+</div>
