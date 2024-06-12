@@ -3,23 +3,23 @@ import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
-import { LandpadsApiService } from './landpads-api.service';
-import { ILandpad, IRequestOptions, IPaginationPage } from '@models';
+import { LaunchpadsApiService } from './launchpads-api.service';
+import { ILaunchpad, IRequestOptions } from '@models';
 import { provideHttpClient } from '@angular/common/http';
 
-describe('LandpadsApiService', () => {
-  let service: LandpadsApiService;
+describe('LaunchpadsApiService', () => {
+  let service: LaunchpadsApiService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        LandpadsApiService,
+        LaunchpadsApiService,
         provideHttpClient(),
         provideHttpClientTesting(),
       ],
     });
-    service = TestBed.inject(LandpadsApiService);
+    service = TestBed.inject(LaunchpadsApiService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -32,12 +32,12 @@ describe('LandpadsApiService', () => {
   });
 
   it('should send the correct request body with provided query and options', () => {
-    const dummyQuery: Partial<ILandpad> = { name: 'FalconSat' };
+    const dummyQuery: Partial<ILaunchpad> = { name: 'FalconSat' };
     const dummyOptions: IRequestOptions = { limit: 5 };
 
     const expectedBody = { query: dummyQuery, options: dummyOptions };
 
-    service.getLandpads(dummyQuery, dummyOptions).subscribe();
+    service.getLaunchpads(dummyQuery, dummyOptions).subscribe();
 
     const req = httpMock.expectOne(service.apiUrl);
     expect(req.request.method).toBe('POST');

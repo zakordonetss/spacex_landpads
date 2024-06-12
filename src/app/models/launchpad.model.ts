@@ -1,4 +1,4 @@
-export interface ILandpad {
+export interface ILaunchpad {
   name: string;
   full_name: string;
   status: string;

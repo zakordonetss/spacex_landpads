@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { LandpadsComponent } from './components/landpads/landpads.component';
+import { LaunchpadsComponent } from './components/launchpads/launchpads.component';
 
 export const routes: Routes = [
-  { path: 'landpads', component: LandpadsComponent },
-  { path: '', redirectTo: '/landpads', pathMatch: 'full' },
-  { path: '**', redirectTo: '/landpads' },
+  { path: 'launchpads', component: LaunchpadsComponent },
+  { path: '', redirectTo: '/launchpads', pathMatch: 'full' },
+  { path: '**', redirectTo: '/launchpads' },
 ];

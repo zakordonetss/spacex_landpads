@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandpadsComponent } from './landpads.component';
+import { LaunchpadsComponent } from './launchpads.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
-describe('LandpadsComponent', () => {
-  let component: LandpadsComponent;
-  let fixture: ComponentFixture<LandpadsComponent>;
+describe('LaunchpadsComponent', () => {
+  let component: LaunchpadsComponent;
+  let fixture: ComponentFixture<LaunchpadsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LandpadsComponent],
+      imports: [LaunchpadsComponent],
       providers: [provideHttpClientTesting(), provideHttpClient()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LandpadsComponent);
+    fixture = TestBed.createComponent(LaunchpadsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

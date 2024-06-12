@@ -3,30 +3,30 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { ILandpad, IPaginationPage } from '@models';
-import { LandpadsApiService } from 'src/app/services/landpads/landpads-api.service';
+import { ILaunchpad, IPaginationPage } from '@models';
+import { LaunchpadsApiService } from 'src/app/services/launchpads/launchpads-api.service';
 
-describe('LandpadsApiService Integration Test', () => {
-  let service: LandpadsApiService;
+describe('LaunchpadsApiService Integration Test', () => {
+  let service: LaunchpadsApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [],
       providers: [
-        LandpadsApiService,
+        LaunchpadsApiService,
         provideHttpClient(withInterceptorsFromDi()),
       ],
     });
-    service = TestBed.inject(LandpadsApiService);
+    service = TestBed.inject(LaunchpadsApiService);
   });
 
-  it('should fetch landpads from SpaceX API', (done) => {
+  it('should fetch launchpads from SpaceX API', (done) => {
     const query = {};
     const options = { limit: 5 };
 
     service
-      .getLandpads(query, options)
-      .subscribe((response: IPaginationPage<ILandpad>) => {
+      .getLaunchpads(query, options)
+      .subscribe((response: IPaginationPage<ILaunchpad>) => {
         expect(response).toBeTruthy();
         expect(response.docs).toBeInstanceOf(Array);
         done();

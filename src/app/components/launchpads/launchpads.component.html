@@ -1,0 +1,7 @@
+<p>launchpads works!</p>
+
+<div>
+  @for (launchpad of launchpads$ | async; track launchpad.id) {
+    <div>{{ launchpad.name }}</div>
+  }
+</div>

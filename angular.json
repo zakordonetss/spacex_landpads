@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "spacex_landpads": {
+    "spacex_launchpads": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/spacex_landpads",
+            "outputPath": "dist/spacex_launchpads",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "spacex_landpads:build:production"
+              "buildTarget": "spacex_launchpads:build:production"
             },
             "development": {
-              "buildTarget": "spacex_landpads:build:development"
+              "buildTarget": "spacex_launchpads:build:development"
             }
           },
           "defaultConfiguration": "development"
