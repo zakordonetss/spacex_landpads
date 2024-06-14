@@ -1,0 +1,96 @@
+@use '@angular/material' as mat;
+
+$black-50: #e0e0e0;
+$black-100: #bdbdbd;
+$black-200: #9e9e9e;
+$black-300: #757575;
+$black-400: #616161;
+$black-500: #424242;
+$black-600: #303030;
+$black-700: #212121;
+$black-800: #171717;
+$black-900: #000000;
+$black-A100: #82b1ff;
+$black-A200: #448aff;
+$black-A400: #2979ff;
+$black-A700: #2962ff;
+
+$dark-primary-text: rgba(0, 0, 0, 0.87);
+$light-primary-text: white;
+
+$custom-black-palette: mat.m2-define-palette((
+  50: $black-50,
+  100: $black-100,
+  200: $black-200,
+  300: $black-300,
+  400: $black-400,
+  500: $black-500,
+  600: $black-600,
+  700: $black-700,
+  800: $black-800,
+  900: $black-900,
+  A100: $black-A100,
+  A200: $black-A200,
+  A400: $black-A400,
+  A700: $black-A700,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text
+  )
+));
+
+// Define a minimal accent palette (optional)
+$custom-accent-palette: mat.m2-define-palette((
+  50: $black-50,
+  100: $black-100,
+  200: $black-200,
+  300: $black-300,
+  400: $black-400,
+  500: $black-500,
+  600: $black-600,
+  700: $black-700,
+  800: $black-800,
+  900: $black-900,
+  A100: $black-A100,
+  A200: $black-A200,
+  A400: $black-A400,
+  A700: $black-A700,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text
+  )
+));
+
+$custom-black-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $custom-black-palette,
+    accent: $custom-accent-palette,
+  ),
+  typography: (),
+  density: ()
+));
+

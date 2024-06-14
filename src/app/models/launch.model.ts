@@ -1,7 +1,7 @@
 export interface ILaunch {
-  id: number;
+  id: string;
   name?: string;
-  link?: {
+  links?: {
     wikipedia?: string;
   };
 }

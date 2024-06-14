@@ -25,11 +25,13 @@ import {
 } from 'rxjs';
 import { LaunchpadsApiService } from 'src/app/services/launchpads/launchpads-api.service';
 import { IQuery, IQueryOrValue } from '@models/query.model';
+import { LaunchpadComponent } from './launchpad/launchpad.component';
 
 @Component({
   selector: 'app-launchpads',
   standalone: true,
   imports: [
+    LaunchpadComponent,
     CommonModule,
     MatPaginatorModule,
     MatFormFieldModule,

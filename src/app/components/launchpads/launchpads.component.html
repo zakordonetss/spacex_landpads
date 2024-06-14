@@ -1,7 +1,6 @@
-<p>launchpads works!</p>
-
-<div>
-  <mat-form-field class="example-form-field">
+<div class="Header">
+  <h3 class="Title">SpaceX Launchpads</h3>
+  <mat-form-field class="Search">
     <mat-label>Search by Name or Region</mat-label>
     <input matInput type="text" [formControl]="filterControl">
 
@@ -11,15 +10,22 @@
       </button>
     }
   </mat-form-field>
-
-  @for (launchpad of launchpads$ | async; track launchpad.id) {
-    <div>{{ launchpad.name }}</div>
-  }
-
-  <mat-paginator
-    [length]="totalItems()"
-    [pageSize]="5"
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    (page)="handlePageChange($event)">
-  </mat-paginator>
 </div>
+
+<div class="Container">
+  <div class="Launchpads">
+    @for (launchpad of launchpads$ | async; track launchpad.id) {
+      <app-launchpad class="Launchpad" [launchpad]="launchpad"></app-launchpad>
+    }
+    @empty {
+      <div class="Empty">No items found</div>
+    }
+  </div>
+</div>
+
+<mat-paginator
+  [length]="totalItems()"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="handlePageChange($event)">
+</mat-paginator>
