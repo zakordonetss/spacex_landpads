@@ -1,16 +1,26 @@
+import { ILaunch } from './launch.model';
+
 export interface ILaunchpad {
-  name: string;
-  full_name: string;
-  status: string;
-  type: string;
-  locality: string;
-  region: string;
-  latitude: number;
-  longitude: number;
-  landing_attempts: number;
-  landing_successes: number;
-  wikipedia: string;
-  details: string;
-  launches: string[];
   id: string;
+  name?: string;
+  full_name?: string;
+  status: ELaunchpadStatus;
+  locality?: string;
+  region?: string;
+  timezone?: string;
+  latitude?: number;
+  longitude?: number;
+  launch_attempts: number;
+  launch_successes: number;
+  rockets: string[];
+  launches: ILaunch[];
+}
+
+export enum ELaunchpadStatus {
+  active = 'active',
+  inactive = 'inactive',
+  unknown = 'unknown',
+  retired = 'retired',
+  lost = 'lost',
+  under_construction = 'under construction',
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILaunchpad, IPaginationPage, IRequestOptions } from '@models';
+import { IQuery } from '@models/query.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,8 +16,8 @@ export class LaunchpadsApiService {
   constructor(private readonly _httpClient: HttpClient) {}
 
   getLaunchpads(
-    query: Partial<ILaunchpad>,
-    options: IRequestOptions
+    query: IQuery<ILaunchpad>,
+    options: IRequestOptions<ILaunchpad>
   ): Observable<IPaginationPage<ILaunchpad>> {
     const body = { query, options };
     return this._httpClient.post<any>(this._apiUrl, body);

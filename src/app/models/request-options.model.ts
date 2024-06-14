@@ -1,15 +1,10 @@
-export interface IRequestOptions {
+export interface IRequestOptions<T> {
   limit?: number;
-  populate?: IPopulationOptions;
-  select?: any;
-  pagination?: boolean;
-}
-
-export interface IPopulationOptions {
-  path: EPopulatedOptions;
-  select?: string;
-}
-
-export enum EPopulatedOptions {
-  launches = 'launches',
+  offset?: number;
+  page?: number;
+  select?: Array<keyof T>;
+  populate?: Array<{
+    path: string;
+    select?: string[];
+  }>;
 }

@@ -6,6 +6,7 @@ import {
 import { LaunchpadsApiService } from './launchpads-api.service';
 import { ILaunchpad, IRequestOptions } from '@models';
 import { provideHttpClient } from '@angular/common/http';
+import { IQuery, IQueryOrValue } from '@models/query.model';
 
 describe('LaunchpadsApiService', () => {
   let service: LaunchpadsApiService;
@@ -32,8 +33,14 @@ describe('LaunchpadsApiService', () => {
   });
 
   it('should send the correct request body with provided query and options', () => {
-    const dummyQuery: Partial<ILaunchpad> = { name: 'FalconSat' };
-    const dummyOptions: IRequestOptions = { limit: 5 };
+    const value: IQueryOrValue = {
+      $regex: 'Cal',
+      $options: 'i',
+    };
+    const dummyQuery: IQuery<ILaunchpad> = {
+      $or: [{ name: value }, { region: value }],
+    };
+    const dummyOptions: IRequestOptions<ILaunchpad> = { limit: 5 };
 
     const expectedBody = { query: dummyQuery, options: dummyOptions };
 
