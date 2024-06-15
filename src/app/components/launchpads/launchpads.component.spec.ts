@@ -40,7 +40,12 @@ describe('LaunchpadsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CommonModule, BrowserAnimationsModule, BrowserModule],
-      providers: [provideHttpClientTesting(), provideHttpClient()],
+      providers: [
+        provideHttpClientTesting(),
+        provideHttpClient(),
+        LaunchpadsComponent,
+        LaunchpadsApiService,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LaunchpadsComponent);

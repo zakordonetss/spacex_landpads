@@ -52,12 +52,8 @@ describe('LaunchpadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        MatExpansionModule,
-        LaunchpadComponent,
-        LaunchComponent,
-      ],
+      imports: [BrowserAnimationsModule, MatExpansionModule, LaunchComponent],
+      providers: [LaunchpadComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LaunchpadComponent);
