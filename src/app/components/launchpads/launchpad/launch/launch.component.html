@@ -1,2 +1,7 @@
-<p class="Name">{{ launch.name }}</p>
-<a class="Link" [href]="launch.links?.wikipedia" target="_blank">Wikipedia</a>
+
+<p class="Name">{{ launch.name ?? 'Launch without name' }}</p>
+
+@if (launch.links?.wikipedia) {
+  <a class="Link" [href]="launch.links?.wikipedia" target="_blank">Wikipedia</a>
+}
+

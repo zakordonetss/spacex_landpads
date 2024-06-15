@@ -65,14 +65,7 @@ export class LaunchpadsComponent implements OnInit, OnDestroy {
 
   public async ngOnInit(): Promise<void> {
     this.launchpads$ = this._getLaunchpadsObs();
-    this._filterValueChangeSub = this.filterControl.valueChanges
-      .pipe()
-      .subscribe((filterValue) => {
-        this._queryParams.next({
-          ...this._queryParams.value,
-          filterValue: filterValue ?? '',
-        });
-      });
+    this._filterValueChangeSub = this._getFilterValueChangeSub();
   }
 
   public ngOnDestroy(): void {
@@ -119,5 +112,14 @@ export class LaunchpadsComponent implements OnInit, OnDestroy {
       }),
       map((page) => page.docs)
     );
+  }
+
+  private _getFilterValueChangeSub(): Subscription {
+    return this.filterControl.valueChanges.pipe().subscribe((filterValue) => {
+      this._queryParams.next({
+        ...this._queryParams.value,
+        filterValue: filterValue ?? '',
+      });
+    });
   }
 }
