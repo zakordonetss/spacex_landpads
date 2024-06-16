@@ -24,3 +24,10 @@ export enum ELaunchpadStatus {
   lost = 'lost',
   under_construction = 'under construction',
 }
+
+export enum ELaunchpadKeys {
+  id = 'id',
+  name = 'name',
+  region = 'region',
+  launches = 'launches',
+}

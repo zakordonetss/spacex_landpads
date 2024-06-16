@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import {
+  ELaunchKeys,
+  ELaunchpadKeys,
   ILaunchpad,
   IPaginationPage,
   IQueryParams,
@@ -57,8 +59,18 @@ export class LaunchpadsComponent implements OnInit, OnDestroy {
     filterValue: '',
   });
   private readonly _requestOptions: IRequestOptions<ILaunchpad> = {
-    select: ['id', 'name', 'region', 'launches'],
-    populate: [{ path: 'launches', select: ['name', 'links'] }],
+    select: [
+      ELaunchpadKeys.id,
+      ELaunchpadKeys.name,
+      ELaunchpadKeys.region,
+      ELaunchpadKeys.launches,
+    ],
+    populate: [
+      {
+        path: ELaunchpadKeys.launches,
+        select: [ELaunchKeys.name, ELaunchKeys.link],
+      },
+    ],
   };
 
   constructor(private readonly _launchpadsApiService: LaunchpadsApiService) {}

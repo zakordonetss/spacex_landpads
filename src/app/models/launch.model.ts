@@ -5,3 +5,8 @@ export interface ILaunch {
     wikipedia?: string;
   };
 }
+
+export enum ELaunchKeys {
+  name = 'name',
+  link = 'link',
+}
