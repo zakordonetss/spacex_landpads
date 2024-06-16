@@ -19,15 +19,18 @@ import {
   BehaviorSubject,
   Observable,
   Subscription,
+  catchError,
   debounceTime,
   distinctUntilChanged,
   map,
+  of,
   switchMap,
   tap,
 } from 'rxjs';
 import { LaunchpadsApiService } from 'src/app/services/launchpads/launchpads-api.service';
 import { IQuery, IQueryOrValue } from '@models/query.model';
 import { LaunchpadComponent } from './launchpad/launchpad.component';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-launchpads',
@@ -73,7 +76,10 @@ export class LaunchpadsComponent implements OnInit, OnDestroy {
     ],
   };
 
-  constructor(private readonly _launchpadsApiService: LaunchpadsApiService) {}
+  constructor(
+    private readonly _launchpadsApiService: LaunchpadsApiService,
+    private readonly _loaderService: LoaderService
+  ) {}
 
   public async ngOnInit(): Promise<void> {
     this.launchpads$ = this._getLaunchpadsObs();
@@ -112,11 +118,18 @@ export class LaunchpadsComponent implements OnInit, OnDestroy {
           if (params.currentPage) {
             this._requestOptions.page = params.currentPage;
           }
+          this._loaderService.show();
 
-          return this._launchpadsApiService.getLaunchpads(
-            query,
-            this._requestOptions
-          );
+          return this._launchpadsApiService
+            .getLaunchpads(query, this._requestOptions)
+            .pipe(
+              tap(() => this._loaderService.hide()),
+              catchError((error) => {
+                console.error('Error fetching launchpads:', error);
+                this._loaderService.hide();
+                return of({ docs: [], totalDocs: 0 });
+              })
+            );
         }
       ),
       tap((page: IPaginationPage<ILaunchpad>) => {

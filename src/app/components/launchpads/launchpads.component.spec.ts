@@ -26,15 +26,6 @@ describe('LaunchpadsComponent', () => {
       { id: '2', name: 'Launchpad 2', region: 'Region 2', launches: [] },
     ],
     totalDocs: 2,
-    limit: 5,
-    offset: 0,
-    totalPages: 1,
-    page: 1,
-    pagingCounter: 1,
-    hasPrevPage: false,
-    hasNextPage: true,
-    prevPage: 0,
-    nextPage: 2,
   };
 
   beforeEach(async () => {

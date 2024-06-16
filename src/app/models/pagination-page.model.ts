@@ -1,13 +1,13 @@
 export interface IPaginationPage<T> {
   docs: T[];
   totalDocs: number;
-  offset: number;
-  limit: number;
-  totalPages: number;
-  page: number;
-  pagingCounter: number;
-  hasPrevPage: boolean;
-  hasNextPage: boolean;
-  prevPage: number | null;
-  nextPage: number | null;
+  offset?: number;
+  limit?: number;
+  totalPages?: number;
+  page?: number;
+  pagingCounter?: number;
+  hasPrevPage?: boolean;
+  hasNextPage?: boolean;
+  prevPage?: number | null;
+  nextPage?: number | null;
 }
