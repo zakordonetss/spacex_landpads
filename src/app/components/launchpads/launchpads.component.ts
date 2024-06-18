@@ -143,6 +143,7 @@ export class LaunchpadsComponent implements OnInit, OnDestroy {
     return this.filterControl.valueChanges.pipe().subscribe((filterValue) => {
       this._queryParams.next({
         ...this._queryParams.value,
+        currentPage: 1,
         filterValue: filterValue ?? '',
       });
     });
