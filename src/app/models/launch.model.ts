@@ -8,5 +8,5 @@ export interface ILaunch {
 
 export enum ELaunchKeys {
   name = 'name',
-  link = 'link',
+  links = 'links',
 }

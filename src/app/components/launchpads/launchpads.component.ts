@@ -71,7 +71,7 @@ export class LaunchpadsComponent implements OnInit, OnDestroy {
     populate: [
       {
         path: ELaunchpadKeys.launches,
-        select: [ELaunchKeys.name, ELaunchKeys.link],
+        select: [ELaunchKeys.name, ELaunchKeys.links],
       },
     ],
   };
